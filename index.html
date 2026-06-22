@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placement Preparation Tracker</title>
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-brand">
+          <i class="fa-solid fa-code header-icon"></i>
+          <h1 class="header-title">Placement Preparation Tracker</h1>
+        </div>
+        <p class="header-subtitle">Track, solve, and conquer your placement goals</p>
+      </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="site-main">
+
+      <!-- ===== DASHBOARD SECTION ===== -->
+      <section class="dashboard" aria-label="Statistics Dashboard">
+        <h2 class="section-title">
+          <i class="fa-solid fa-chart-line"></i>
+          Dashboard
+        </h2>
+
+        <div class="cards-grid">
+
+          <!-- Card: Total Questions -->
+          <article class="stat-card card--total">
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-layer-group card-icon"></i>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Total Questions</p>
+              <p class="card-value" id="total-questions">0</p>
+            </div>
+          </article>
+
+          <!-- Card: Solved -->
+          <article class="stat-card card--solved">
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-circle-check card-icon"></i>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Solved</p>
+              <p class="card-value" id="solved-questions">0</p>
+            </div>
+          </article>
+
+          <!-- Card: Remaining -->
+          <article class="stat-card card--remaining">
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-hourglass-half card-icon"></i>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Remaining</p>
+              <p class="card-value" id="remaining-questions">0</p>
+            </div>
+          </article>
+
+          <!-- Card: Progress -->
+          <article class="stat-card card--progress">
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-percent card-icon"></i>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Progress</p>
+              <p class="card-value" id="progress-percent">0%</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-wrap" aria-label="Overall progress bar">
+          <div class="progress-bar-header">
+            <span class="progress-bar-label">
+              <i class="fa-solid fa-rocket"></i>
+              Overall Progress
+            </span>
+            <span class="progress-bar-percent" id="progress-bar-percent">0%</span>
+          </div>
+          <div class="progress-bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <div class="progress-bar-legend">
+            <span class="legend-solved">
+              <i class="fa-solid fa-circle"></i>
+              Solved: <strong id="progress-legend-solved">0</strong>
+            </span>
+            <span class="legend-remaining">
+              <i class="fa-solid fa-circle"></i>
+              Remaining: <strong id="progress-legend-remaining">0</strong>
+            </span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ===== ADD NEW QUESTION SECTION ===== -->
+      <section class="add-question" aria-label="Add New Question">
+        <h2 class="section-title">
+          <i class="fa-solid fa-plus-circle"></i>
+          Add New Question
+        </h2>
+
+        <div class="form-card">
+          <form id="question-form" novalidate>
+
+            <div class="form-grid">
+
+              <!-- Company -->
+              <div class="form-group">
+                <label for="company" class="form-label">
+                  <i class="fa-solid fa-building"></i>
+                  Company
+                </label>
+                <select id="company" name="company" class="form-control" required>
+                  <option value="" disabled selected>Select a company</option>
+                  <option value="Amazon">Amazon</option>
+                  <option value="Google">Google</option>
+                  <option value="Microsoft">Microsoft</option>
+                  <option value="Adobe">Adobe</option>
+                  <option value="Flipkart">Flipkart</option>
+                  <option value="Walmart">Walmart</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <!-- Topic -->
+              <div class="form-group">
+                <label for="topic" class="form-label">
+                  <i class="fa-solid fa-tags"></i>
+                  Topic
+                </label>
+                <select id="topic" name="topic" class="form-control" required>
+                  <option value="" disabled selected>Select a topic</option>
+                  <option value="Arrays">Arrays</option>
+                  <option value="Strings">Strings</option>
+                  <option value="Linked List">Linked List</option>
+                  <option value="Stack">Stack</option>
+                  <option value="Queue">Queue</option>
+                  <option value="Binary Search">Binary Search</option>
+                  <option value="Trees">Trees</option>
+                  <option value="Graphs">Graphs</option>
+                  <option value="DP">DP</option>
+                  <option value="Greedy">Greedy</option>
+                  <option value="Backtracking">Backtracking</option>
+                  <option value="Heap">Heap</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <!-- Question Title -->
+              <div class="form-group form-group--full">
+                <label for="question-title" class="form-label">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                  Question Title
+                </label>
+                <input
+                  type="text"
+                  id="question-title"
+                  name="question-title"
+                  class="form-control"
+                  placeholder="e.g. Two Sum, Longest Substring Without Repeating Characters"
+                  required
+                />
+              </div>
+
+              <!-- LeetCode Link -->
+              <div class="form-group form-group--full">
+                <label for="leetcode-link" class="form-label">
+                  <i class="fa-solid fa-link"></i>
+                  LeetCode Link
+                </label>
+                <input
+                  type="url"
+                  id="leetcode-link"
+                  name="leetcode-link"
+                  class="form-control"
+                  placeholder="https://leetcode.com/problems/..."
+                />
+              </div>
+
+              <!-- Difficulty -->
+              <div class="form-group">
+                <label for="difficulty" class="form-label">
+                  <i class="fa-solid fa-signal"></i>
+                  Difficulty
+                </label>
+                <select id="difficulty" name="difficulty" class="form-control" required>
+                  <option value="" disabled selected>Select difficulty</option>
+                  <option value="Easy">Easy</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Hard">Hard</option>
+                </select>
+              </div>
+
+              <!-- Status -->
+              <div class="form-group">
+                <label for="status" class="form-label">
+                  <i class="fa-solid fa-toggle-on"></i>
+                  Status
+                </label>
+                <select id="status" name="status" class="form-control" required>
+                  <option value="" disabled selected>Select status</option>
+                  <option value="Solved">Solved</option>
+                  <option value="Unsolved">Unsolved</option>
+                </select>
+              </div>
+
+            </div><!-- /.form-grid -->
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+              <button type="submit" id="add-question-btn" class="btn btn--primary">
+                <i class="fa-solid fa-plus"></i>
+                Add Question
+              </button>
+              <button type="reset" id="reset-form-btn" class="btn btn--secondary">
+                <i class="fa-solid fa-rotate-left"></i>
+                Reset
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </section>
+
+      <!-- ===== QUESTION LIST SECTION ===== -->
+      <section class="question-list" aria-label="Question List">
+        <h2 class="section-title">
+          <i class="fa-solid fa-list-check"></i>
+          Question List
+        </h2>
+
+        <!-- Filters & Search -->
+        <div class="filters-bar">
+
+          <!-- Search -->
+          <div class="filter-group search-group">
+            <label for="search-input" class="sr-only">Search questions</label>
+            <div class="search-wrap">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input
+                type="search"
+                id="search-input"
+                name="search-input"
+                class="form-control search-control"
+                placeholder="Search by title, company, topic…"
+                aria-label="Search questions"
+              />
+            </div>
+          </div>
+
+          <!-- Company Filter -->
+          <div class="filter-group">
+            <label for="filter-company" class="sr-only">Filter by company</label>
+            <select id="filter-company" name="filter-company" class="form-control filter-select">
+              <option value="">All Companies</option>
+              <option value="Amazon">Amazon</option>
+              <option value="Google">Google</option>
+              <option value="Microsoft">Microsoft</option>
+              <option value="Adobe">Adobe</option>
+              <option value="Flipkart">Flipkart</option>
+              <option value="Walmart">Walmart</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Topic Filter -->
+          <div class="filter-group">
+            <label for="filter-topic" class="sr-only">Filter by topic</label>
+            <select id="filter-topic" name="filter-topic" class="form-control filter-select">
+              <option value="">All Topics</option>
+              <option value="Arrays">Arrays</option>
+              <option value="Strings">Strings</option>
+              <option value="Linked List">Linked List</option>
+              <option value="Stack">Stack</option>
+              <option value="Queue">Queue</option>
+              <option value="Binary Search">Binary Search</option>
+              <option value="Trees">Trees</option>
+              <option value="Graphs">Graphs</option>
+              <option value="DP">DP</option>
+              <option value="Greedy">Greedy</option>
+              <option value="Backtracking">Backtracking</option>
+              <option value="Heap">Heap</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+        </div><!-- /.filters-bar -->
+
+        <!-- Questions Table -->
+        <div class="table-wrap">
+          <table class="questions-table" aria-label="Questions table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <i class="fa-solid fa-building"></i>
+                  Company
+                </th>
+                <th scope="col">
+                  <i class="fa-solid fa-tags"></i>
+                  Topic
+                </th>
+                <th scope="col">
+                  <i class="fa-solid fa-file-lines"></i>
+                  Question
+                </th>
+                <th scope="col">
+                  <i class="fa-solid fa-signal"></i>
+                  Difficulty
+                </th>
+                <th scope="col">
+                  <i class="fa-solid fa-toggle-on"></i>
+                  Status
+                </th>
+                <th scope="col">
+                  <i class="fa-solid fa-link"></i>
+                  Link
+                </th>
+                <th scope="col">
+                  <i class="fa-solid fa-sliders"></i>
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody id="questions-table-body">
+              <!-- Rows will be injected by script.js -->
+            </tbody>
+          </table>
+
+          <!-- Empty State -->
+          <div id="empty-state" class="empty-state" aria-live="polite">
+            <i class="fa-solid fa-inbox empty-state-icon"></i>
+            <p class="empty-state-text">No questions added yet.</p>
+            <p class="empty-state-sub">Fill in the form above to start tracking your progress.</p>
+          </div>
+
+        </div><!-- /.table-wrap -->
+
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <p class="footer-text">
+        <i class="fa-solid fa-heart footer-heart"></i>
+        Built with <strong>HTML</strong>, <strong>CSS</strong> and <strong>JavaScript</strong>
+      </p>
+    </footer>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+
+  </body>
+</html>
